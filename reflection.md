@@ -3,9 +3,32 @@
 ## 1. System Design
 
 **a. Initial design**
+Core Actions:
+
+1. Task Management (Input)
+2. Constraint-based scheduling
+3. Plan Generation and Justification
 
 - Briefly describe your initial UML design.
+
+Planner > Daily Plan > Owner + Pet > tasks
 - What classes did you include, and what responsibilities did you assign to each?
+--- Classes
+   - Owner
+        -Responsibilities: Stores the user's basic information and global constraints
+        - Attributes: Name, available time fo the day, user preferences
+   - Pet
+        -Responsibilities: Pet information
+        - Attributes: Name, species/breed, age, needs/restrictions
+   - Task
+        -Responsibilities: Care activities for pet and owner
+        - Attributes: task name, category, duration (time in minutes), priority level
+   - DailyPlan
+        -Responsibilities: Scheduling Process
+        -Attributes: List of tasks, total time, reason behind the schedule
+   - Planner
+        -Responsibilities: Core logic: Takes the owneres constraints and the list task, evaluates them and based on priority or available time outpus a dailyplan
+        -Tasks: generate_plan(), explain_reasoning()
 
 **b. Design changes**
 
